@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const PawMark = () => (
   <svg
     width="48"
@@ -148,12 +150,12 @@ export default function Home() {
               </button>
             </div>
 
-            <button
-              type="submit"
-              className="mt-6 w-full rounded-xl bg-slate-100 py-3 text-sm font-semibold text-slate-400 shadow-inner"
+            <Link
+              href="/turnos"
+              className="mt-6 block w-full rounded-xl bg-slate-100 py-3 text-center text-sm font-semibold text-slate-400 shadow-inner"
             >
               Iniciar sesión
-            </button>
+            </Link>
           </form>
         </section>
 
@@ -161,16 +163,7 @@ export default function Home() {
           <div className="absolute left-1/2 top-1/2 h-[480px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-[36px] bg-white shadow-[0_30px_80px_rgba(15,23,42,0.12)]" />
 
           <div className="relative z-10 rounded-[32px] bg-white p-7 shadow-[0_18px_50px_rgba(15,23,42,0.1)]">
-            <div className="flex items-start justify-between">
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
-                <span className="inline-flex h-3 w-3 rounded-full bg-[#f97316]" />
-                PREFECTURA DE PICHINCHA
-              </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-500">
-                <span className="inline-flex h-3 w-3 rounded-full bg-[#0ea5e9]" />
-                PICHINCHA INVENCIBLE
-              </div>
-            </div>
+            
 
             <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200">
               <div className="flex items-center justify-between bg-[#0b1f38] px-5 py-4 text-white">
@@ -196,11 +189,7 @@ export default function Home() {
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center justify-center rounded-2xl bg-[#0b1f38]">
-                  <div className="text-center text-sm font-semibold uppercase tracking-[0.3em] text-[#f59e0b]">
-                    HAMPI
-                  </div>
-                </div>
+                
               </div>
             </div>
 
@@ -212,7 +201,7 @@ export default function Home() {
                 <div className="absolute left-6 top-10 h-20 w-20 rounded-full bg-white/40" />
                 <div className="absolute right-16 top-8 h-28 w-28 rounded-full bg-white/60" />
                 <div className="absolute left-8 bottom-8 text-sm font-semibold text-[#0b1f38]">
-                  Foto mascotas
+                  
                 </div>
               </div>
             </div>

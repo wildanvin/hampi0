@@ -1,4 +1,7 @@
 import TurnosCalendar from "../components/TurnosCalendar";
+import UserMenu from "../components/UserMenu";
+import SedeSelect from "../components/SedeSelect";
+import FilterMenu from "../components/FilterMenu";
 
 const PawLogo = () => (
   <svg width="40" height="40" viewBox="0 0 48 48" fill="none">
@@ -75,36 +78,26 @@ export default function TurnosPage() {
         </aside>
 
         <main className="flex-1 px-10 py-8">
-          <div className="flex items-start justify-between">
+          <div className="flex items-start justify-between pr-20">
             <div>
               <h1 className="text-2xl font-semibold text-slate-900">
                 Bienvenido, <span className="font-bold">Nicole Salazar</span>
               </h1>
               <p className="mt-1 text-sm text-slate-400">Hampi / Tus citas</p>
             </div>
-            <button className="rounded-xl border border-[#f59e0b] px-5 py-3 text-sm font-semibold text-[#f59e0b] shadow-sm transition hover:bg-[#fef3c7]">
+            <button className="rounded-xl border border-[#f59e0b] px-5 py-3 text-sm font-semibold text-[#f59e0b] shadow-sm transition hover:bg-[#fef3c7] mr-6 whitespace-nowrap">
               Crear Turno Adicional
             </button>
+            <UserMenu />
           </div>
 
           <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-4 text-sm">
-              <div className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-500 shadow-sm">
-                <span className="text-slate-500">Febrero 2, 2026</span>
-              </div>
-            </div>
-
             <div className="flex items-center gap-4">
               <div className="text-sm font-medium text-slate-500">
-                Usted está viendo el calendario de la sede:
+                Sede:
               </div>
-              <div className="rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 shadow-sm">
-                PUEMBO
-              </div>
-              <button className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-600 shadow-sm">
-                Filtrar por
-                <span className="text-slate-400">▾</span>
-              </button>
+              <SedeSelect />
+              <FilterMenu />
             </div>
           </div>
 
@@ -112,22 +105,6 @@ export default function TurnosPage() {
             <TurnosCalendar />
           </div>
         </main>
-
-        <div className="fixed right-8 top-8 flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-500 shadow-sm">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-          </svg>
-        </div>
       </div>
     </div>
   );

@@ -68,7 +68,7 @@ const events = [
   },
   {
     title: "Mateo\nJuan Llucalla",
-    start: "2026-02-05T06:55:00",
+    start: "2026-02-05T07:55:00",
     end: "2026-02-05T07:10:00",
     badge: "1",
   },
@@ -80,7 +80,7 @@ const events = [
   },
   {
     title: "Pepe\nDianna Jacqueline",
-    start: "2026-02-06T06:55:00",
+    start: "2026-02-06T014:55:00",
     end: "2026-02-06T07:10:00",
     badge: "1",
   },
@@ -113,7 +113,7 @@ export default function TurnosCalendar() {
         locale="es"
         events={events}
         height="auto"
-        dayMaxEventRows={4}
+        dayMaxEventRows={5}
         eventDisplay="block"
         eventTextColor="#0b1f38"
         eventBackgroundColor="#baf7d4"
