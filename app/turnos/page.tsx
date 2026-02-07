@@ -85,9 +85,12 @@ export default function TurnosPage() {
               </h1>
               <p className="mt-1 text-sm text-slate-400">Hampi / Tus citas</p>
             </div>
-            <button className="rounded-xl border border-[#f59e0b] px-5 py-3 text-sm font-semibold text-[#f59e0b] shadow-sm transition hover:bg-[#fef3c7] mr-6 whitespace-nowrap">
+            <a
+              href="/turnos/nuevo"
+              className="rounded-xl border border-[#f59e0b] px-5 py-3 text-sm font-semibold text-[#f59e0b] shadow-sm transition hover:bg-[#fef3c7] mr-6 whitespace-nowrap"
+            >
               Crear Turno Adicional
-            </button>
+            </a>
             <UserMenu />
           </div>
 

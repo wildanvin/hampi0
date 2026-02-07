@@ -29,6 +29,20 @@ body {
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
 }
 
+button,
+a,
+[role="button"] {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, color 0.15s ease,
+    background-color 0.15s ease, border-color 0.15s ease;
+}
+
+button:hover,
+a:hover,
+[role="button"]:hover {
+  transform: translateY(-1px);
+}
+
 .fc {
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
 }
@@ -122,6 +136,13 @@ body {
   font-size: 0.7rem;
   line-height: 1.1;
   box-shadow: 0 8px 16px rgba(15, 23, 42, 0.06);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fc .fc-event:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 20px rgba(15, 23, 42, 0.12);
 }
 
 .fc .fc-event-title {

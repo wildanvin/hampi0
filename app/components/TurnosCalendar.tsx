@@ -1,107 +1,44 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import { citas } from "../data/citas";
 
-const events = [
-  {
-    title: "Bingo\nWilliam Pepper",
-    start: "2026-02-02T06:55:00",
-    end: "2026-02-02T07:10:00",
-    badge: "1",
-  },
-  {
-    title: "Sam\nMagdalena Chicaiza",
-    start: "2026-02-02T06:55:00",
-    end: "2026-02-02T07:10:00",
-    badge: "2",
-  },
-  {
-    title: "Perlita\nNicol Guzmán",
-    start: "2026-02-02T06:55:00",
-    end: "2026-02-02T07:10:00",
-    badge: "3",
-  },
-  {
-    title: "Manchas Pérez\nMaría Alexandra Pérez",
-    start: "2026-02-02T06:55:00",
-    end: "2026-02-02T07:10:00",
-    badge: "4",
-  },
-  {
-    title: "Nube\nGustavo Arias",
-    start: "2026-02-03T06:55:00",
-    end: "2026-02-03T07:10:00",
-    badge: "1",
-  },
-  {
-    title: "Luna\nFredy Luis Lema",
-    start: "2026-02-03T06:55:00",
-    end: "2026-02-03T07:10:00",
-    badge: "2",
-  },
-  {
-    title: "Lucero\nFredy Luis Lema",
-    start: "2026-02-03T06:55:00",
-    end: "2026-02-03T07:10:00",
-    badge: "3",
-  },
-  {
-    title: "Nina\nMelany Mayery",
-    start: "2026-02-04T06:55:00",
-    end: "2026-02-04T07:10:00",
-    badge: "1",
-  },
-  {
-    title: "Teila\nMelany Mayery",
-    start: "2026-02-04T06:55:00",
-    end: "2026-02-04T07:10:00",
-    badge: "2",
-  },
-  {
-    title: "Kiara\nIván Alomoto",
-    start: "2026-02-04T06:55:00",
-    end: "2026-02-04T07:10:00",
-    badge: "3",
-  },
-  {
-    title: "Mateo\nJuan Llucalla",
-    start: "2026-02-05T07:55:00",
-    end: "2026-02-05T07:10:00",
-    badge: "1",
-  },
-  {
-    title: "Pelusa\nDylan Mateo",
-    start: "2026-02-05T06:55:00",
-    end: "2026-02-05T07:10:00",
-    badge: "2",
-  },
-  {
-    title: "Pepe\nDianna Jacqueline",
-    start: "2026-02-06T014:55:00",
-    end: "2026-02-06T07:10:00",
-    badge: "1",
-  },
-  {
-    title: "Layca\nDianna Jacqueline",
-    start: "2026-02-06T06:55:00",
-    end: "2026-02-06T07:10:00",
-    badge: "2",
-  },
-  {
-    title: "Pepita\nEdit Graciela",
-    start: "2026-02-06T06:55:00",
-    end: "2026-02-06T07:10:00",
-    badge: "3",
-  },
-];
+const events = citas.map((cita) => ({
+  id: cita.id,
+  title: `${cita.mascota}\n${cita.custodio}`,
+  start: cita.start,
+  end: cita.end,
+  badge: cita.badge,
+}));
 
 export default function TurnosCalendar() {
+  const router = useRouter();
+  const calendarRef = useRef<FullCalendar | null>(null);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+
+    const applyView = () => {
+      const api = calendarRef.current?.getApi();
+      if (!api) return;
+      api.changeView(media.matches ? "timeGridDay" : "dayGridWeek");
+    };
+
+    applyView();
+    media.addEventListener("change", applyView);
+
+    return () => media.removeEventListener("change", applyView);
+  }, []);
+
   return (
     <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
       <FullCalendar
+        ref={calendarRef}
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="dayGridWeek"
         initialDate="2026-02-02"
@@ -121,6 +58,11 @@ export default function TurnosCalendar() {
         nowIndicator
         firstDay={1}
         dayHeaderFormat={{ weekday: "short", day: "2-digit" }}
+        eventClick={(info) => {
+          if (info.event.id) {
+            router.push(`/turnos/${info.event.id}`);
+          }
+        }}
         eventContent={(info) => {
           const badge = (info.event.extendedProps as { badge?: string }).badge;
           return (
