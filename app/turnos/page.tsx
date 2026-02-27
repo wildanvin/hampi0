@@ -20,63 +20,6 @@ export default function TurnosPage() {
   return (
     <div className="min-h-screen bg-[#f5f7fb]">
       <div className="flex min-h-screen">
-        <aside className="flex w-64 flex-col justify-between border-r border-slate-200 bg-white px-6 py-8">
-          <div>
-            <div className="flex items-center gap-3">
-              <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#fff3e6]">
-                <PawLogo />
-              </div>
-              <div>
-                <div className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f97316]">
-                  Hampi
-                </div>
-                <div className="text-xs text-slate-400">Turnos</div>
-              </div>
-            </div>
-
-            <nav className="mt-10 space-y-2 text-sm font-semibold text-slate-500">
-              <button className="flex w-full items-center gap-3 rounded-xl bg-[#fff3e6] px-4 py-3 text-[#f97316]">
-                <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#f97316]">
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="3" y="4" width="18" height="18" rx="2" />
-                    <path d="M16 2v4M8 2v4M3 10h18" />
-                  </svg>
-                </span>
-                Citas
-              </button>
-            </nav>
-          </div>
-
-          <button className="flex items-center gap-3 text-sm font-semibold text-slate-400">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-200">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M10 17l5-5-5-5" />
-                <path d="M4 12h11" />
-                <path d="M20 19V5" />
-              </svg>
-            </span>
-            Cerrar sesión
-          </button>
-        </aside>
-
         <main className="flex-1 px-10 py-8">
           <div className="flex items-start justify-between pr-20">
             <div>

@@ -159,7 +159,7 @@ export default function Home() {
           </form>
         </section>
 
-        <section className="relative hidden w-full max-w-xl lg:block">
+        {/* <section className="relative hidden w-full max-w-xl lg:block">
           <div className="absolute left-1/2 top-1/2 h-[480px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-[36px] bg-white shadow-[0_30px_80px_rgba(15,23,42,0.12)]" />
 
           <div className="relative z-10 rounded-[32px] bg-white p-7 shadow-[0_18px_50px_rgba(15,23,42,0.1)]">
@@ -206,7 +206,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </div>
   );
