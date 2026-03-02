@@ -1,12 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import PharmacologySection from './PharmacologySection'
+import VitalsSection from './VitalsSection'
 
 const tabs = [
   'Evaluación clínica',
   'Fármacos',
   'Operatorio',
-  'Insumos administrados',
+  //'Insumos administrados',
 ] as const
 
 type TabKey = (typeof tabs)[number]
@@ -112,155 +114,12 @@ export default function ConsultaTabs() {
             />
           </div>
 
-          <div className='mt-8'>
-            <div className='mb-4 font-semibold text-slate-700'>
-              Constantes fisiológicas
-            </div>
-            <div className='grid gap-4 lg:grid-cols-3'>
-              <div>
-                <label className='text-xs font-semibold text-slate-600'>
-                  Temperatura (°C)
-                </label>
-                <input
-                  type='text'
-                  defaultValue='38'
-                  className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-                />
-              </div>
-              <div>
-                <label className='text-xs font-semibold text-slate-600'>
-                  Frecuencia cardiaca
-                </label>
-                <input
-                  type='text'
-                  defaultValue='120'
-                  className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-                />
-              </div>
-              <div>
-                <label className='text-xs font-semibold text-slate-600'>
-                  Frecuencia respiratoria
-                </label>
-                <input
-                  type='text'
-                  defaultValue='30'
-                  className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-                />
-              </div>
-              <div>
-                <label className='text-xs font-semibold text-slate-600'>
-                  Peso (Kg)
-                </label>
-                <input
-                  type='text'
-                  defaultValue='3'
-                  className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-                />
-              </div>
-            </div>
-          </div>
+          <VitalsSection />
         </div>
       )}
 
       {active === 'Fármacos' && (
-        <div className='pt-6 text-sm text-slate-600'>
-          <div className='flex items-center justify-between'>
-            <div className='font-semibold text-slate-800'>Pre-Anestésicos</div>
-            <button className='rounded-xl border border-[#f59e0b] px-4 py-2 text-xs font-semibold text-[#f59e0b]'>
-              Agregar fármaco
-            </button>
-          </div>
-          <div className='mt-4 grid gap-4 lg:grid-cols-2'>
-            <div>
-              <label className='text-xs font-semibold text-slate-600'>
-                Tramal (ml)
-              </label>
-              <input
-                type='text'
-                defaultValue='0'
-                className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-              />
-            </div>
-            <div>
-              <label className='text-xs font-semibold text-slate-600'>
-                Acepromacina (ml)
-              </label>
-              <input
-                type='text'
-                defaultValue='0'
-                className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-              />
-            </div>
-          </div>
-
-          <div className='mt-6 border-t border-slate-200 pt-6'>
-            <div className='font-semibold text-slate-800'>Anestésicos</div>
-            <div className='mt-4 grid gap-4 lg:grid-cols-2'>
-              <div>
-                <label className='text-xs font-semibold text-slate-600'>
-                  Ketamina 100 (ml)
-                </label>
-                <input
-                  type='text'
-                  defaultValue='0'
-                  className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-                />
-              </div>
-              <div>
-                <label className='text-xs font-semibold text-slate-600'>
-                  Midazolam (ml)
-                </label>
-                <input
-                  type='text'
-                  defaultValue='0'
-                  className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className='mt-6 border-t border-slate-200 pt-6'>
-            <div className='font-semibold text-slate-800'>Analgésicos</div>
-            <div className='mt-4'>
-              <label className='text-xs font-semibold text-slate-600'>
-                ketoprofeno (ml)
-              </label>
-              <input
-                type='text'
-                defaultValue='0'
-                className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-              />
-            </div>
-          </div>
-
-          <div className='mt-6 border-t border-slate-200 pt-6'>
-            <div className='font-semibold text-slate-800'>Antibioticos</div>
-            <div className='mt-4'>
-              <label className='text-xs font-semibold text-slate-600'>
-                Benzapen (ml)
-              </label>
-              <input
-                type='text'
-                defaultValue='0'
-                className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-              />
-            </div>
-          </div>
-
-          <div className='mt-6 border-t border-slate-200 pt-6'>
-            <div className='font-semibold text-slate-800'>Otros fármacos</div>
-            <div className='mt-4'>
-              <label className='text-xs font-semibold text-slate-600'>
-                Amino vit (ml)
-              </label>
-              <input
-                type='text'
-                defaultValue='0'
-                className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-600'
-              />
-            </div>
-          </div>
-        </div>
+        <PharmacologySection />
       )}
 
       {active === 'Operatorio' && (
@@ -336,7 +195,7 @@ export default function ConsultaTabs() {
         </div>
       )}
 
-      {active === 'Insumos administrados' && (
+      {/* {active === 'Insumos administrados' && (
         <div className='pt-6 text-sm text-slate-600'>
           <div className='flex items-center justify-between'>
             <div className='font-semibold text-slate-800'>
@@ -357,7 +216,7 @@ export default function ConsultaTabs() {
             />
           </div>
         </div>
-      )}
+      )} */}
     </div>
   )
 }
