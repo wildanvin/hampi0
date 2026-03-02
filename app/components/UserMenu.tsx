@@ -1,10 +1,12 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 export default function UserMenu() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
@@ -46,7 +48,7 @@ export default function UserMenu() {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-3 w-40 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-[0_20px_40px_rgba(15,23,42,0.12)]">
+        <div className="absolute right-0 mt-3 w-44 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-[0_20px_40px_rgba(15,23,42,0.12)]">
           <button
             type="button"
             className="block w-full px-4 py-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-50"
@@ -55,6 +57,20 @@ export default function UserMenu() {
           </button>
           <button
             type="button"
+            onClick={() => {
+              setOpen(false);
+              router.push("/reportes");
+            }}
+            className="block w-full px-4 py-3 text-left text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            Reportes
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              router.push("/");
+            }}
             className="block w-full px-4 py-3 text-left text-sm font-semibold text-slate-700 hover:bg-slate-50"
           >
             Cerrar sesión
