@@ -34,7 +34,9 @@ export default async function CitaDetallePage({
                   <div className='mt-4 text-center text-sm font-semibold text-slate-700'>
                     {cita.mascota}
                   </div>
-                  <div className='text-sm text-slate-500'>{cita.tipo}</div>
+                  <div className='text-sm text-slate-500'>
+                    {cita.especie} - {cita.edad} años
+                  </div>
                 </div>
 
                 <div className='grid gap-6 text-sm text-slate-600 lg:grid-cols-2'>
@@ -79,12 +81,6 @@ export default async function CitaDetallePage({
                     <div>
                       <div className='font-semibold text-slate-700'>Lugar</div>
                       <div>{cita.lugar}</div>
-                    </div>
-                    <div>
-                      <div className='font-semibold text-slate-700'>
-                        Código HC
-                      </div>
-                      <div>{cita.codigo}</div>
                     </div>
                     <div>
                       <div className='font-semibold text-slate-700'>

@@ -13,8 +13,22 @@ const tabs = [
 
 type TabKey = (typeof tabs)[number]
 
-export default function ConsultaTabs() {
+type ConsultaTabsProps = {
+  sexo: string
+}
+
+const anamnesisQuestions = [
+  { key: 'ayuno-prolongado', label: 'Ayuno prolongado?' },
+  { key: 'vacunas', label: 'Vacunas?' },
+  { key: 'desparacitacion', label: 'Desparacitacion?' },
+  { key: 'vomitos-diarrea', label: 'Vomitos o diarrea?' },
+  { key: 'toser-estornudar', label: 'Toser o estornudar?' },
+  { key: 'inapetencia-decaimiento', label: 'Inapetencia y decaimiento?' },
+] as const
+
+export default function ConsultaTabs({ sexo }: ConsultaTabsProps) {
   const [active, setActive] = useState<TabKey>('Evaluación clínica')
+  const isFemale = sexo.trim().toLowerCase() === 'hembra'
 
   return (
     <div className='mt-10 rounded-3xl bg-white px-8 py-6 shadow-[0_20px_40px_rgba(15,23,42,0.08)]'>
@@ -41,66 +55,41 @@ export default function ConsultaTabs() {
             Anamnesis animal
           </h3>
           <div className='grid gap-6 lg:grid-cols-3'>
-            <div>
-              <div className='font-semibold text-slate-700'>
-                ¿A que hora comió su mascota?
+            {anamnesisQuestions.map((question) => (
+              <div key={question.key}>
+                <div className='font-semibold text-slate-700'>
+                  {question.label}
+                </div>
+                <div className='mt-2 flex gap-4'>
+                  <label className='inline-flex items-center gap-2'>
+                    <input type='radio' name={question.key} />
+                    Si
+                  </label>
+                  <label className='inline-flex items-center gap-2'>
+                    <input type='radio' name={question.key} defaultChecked />
+                    No
+                  </label>
+                </div>
               </div>
-              <div className='mt-2 flex gap-4'>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='comida' defaultChecked />
-                  Ayuno normal
-                </label>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='comida' />
-                  Ayuno prolongado
-                </label>
+            ))}
+
+            {isFemale && (
+              <div>
+                <div className='font-semibold text-slate-700'>
+                  Celo presente?
+                </div>
+                <div className='mt-2 flex gap-4'>
+                  <label className='inline-flex items-center gap-2'>
+                    <input type='radio' name='celo-presente' />
+                    Si
+                  </label>
+                  <label className='inline-flex items-center gap-2'>
+                    <input type='radio' name='celo-presente' defaultChecked />
+                    No
+                  </label>
+                </div>
               </div>
-            </div>
-            <div>
-              <div className='font-semibold text-slate-700'>
-                ¿Su mascota tiene vacunas?
-              </div>
-              <div className='mt-2 flex gap-4'>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='vacunas' />
-                  Si
-                </label>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='vacunas' defaultChecked />
-                  No
-                </label>
-              </div>
-            </div>
-            <div>
-              <div className='font-semibold text-slate-700'>
-                ¿Su mascota tiene desparacitaciones?
-              </div>
-              <div className='mt-2 flex gap-4'>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='despara' />
-                  Si
-                </label>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='despara' defaultChecked />
-                  No
-                </label>
-              </div>
-            </div>
-            <div>
-              <div className='font-semibold text-slate-700'>
-                ¿Su mascota ha presentado vómito o diarrea?
-              </div>
-              <div className='mt-2 flex gap-4'>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='vomito' />
-                  Si
-                </label>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='vomito' defaultChecked />
-                  No
-                </label>
-              </div>
-            </div>
+            )}
           </div>
 
           <div className='mt-6'>

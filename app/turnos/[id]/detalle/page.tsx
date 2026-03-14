@@ -41,7 +41,9 @@ export default async function DetalleConsultaPage({
                     <div className='mt-4 text-center text-sm font-semibold text-slate-700'>
                       {cita.mascota}
                     </div>
-                    <div className='text-sm text-slate-500'>{cita.tipo}</div>
+                    <div className='text-sm text-slate-500'>
+                      {cita.especie} - {cita.edad} años
+                    </div>
                   </div>
                 </div>
 
@@ -161,7 +163,10 @@ export default async function DetalleConsultaPage({
                       <div className='font-semibold text-slate-700'>
                         Especie
                       </div>
-                      <select className='mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500'>
+                      <select
+                        defaultValue={cita.especie}
+                        className='mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500'
+                      >
                         <option>Perro</option>
                         <option>Gato</option>
                       </select>
@@ -172,13 +177,16 @@ export default async function DetalleConsultaPage({
                       </div>
                       <input
                         type='text'
-                        defaultValue={cita.tipo.split(' - ')[1]?.split(' ')[0]}
+                        defaultValue={cita.edad}
                         className='mt-2 w-full rounded-xl border border-slate-200 px-4 py-2 text-sm text-slate-500'
                       />
                     </div>
                     <div>
                       <div className='font-semibold text-slate-700'>Sexo</div>
-                      <select className='mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500'>
+                      <select
+                        defaultValue={cita.sexo}
+                        className='mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500'
+                      >
                         <option>Macho</option>
                         <option>Hembra</option>
                       </select>
@@ -192,7 +200,7 @@ export default async function DetalleConsultaPage({
               </div>
             </div>
 
-            <ConsultaTabs />
+            <ConsultaTabs sexo={cita.sexo} />
           </div>
         </main>
       </div>
