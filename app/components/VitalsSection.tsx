@@ -229,7 +229,7 @@ export default function VitalsSection() {
               finding.severity === 'critical'
                 ? 'border-[#ef4444] bg-[#fee2e2] text-[#b91c1c]'
                 : finding.severity === 'warning'
-                  ? 'border-[#f59e0b] bg-[#fef3c7] text-[#b45309]'
+                  ? 'border-[#4a86b8] bg-[#edf2f8] text-[#2f628e]'
                   : 'border-[#38bdf8] bg-[#e0f2fe] text-[#0369a1]'
 
             return (

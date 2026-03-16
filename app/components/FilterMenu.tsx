@@ -53,7 +53,7 @@ export default function FilterMenu() {
               <input
                 type="text"
                 placeholder="Buscar por nombre"
-                className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-600 outline-none focus:border-[#f59e0b] focus:ring-2 focus:ring-[#f59e0b]/20"
+                className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-600 outline-none focus:border-[#4a86b8] focus:ring-2 focus:ring-[#4a86b8]/20"
               />
             </div>
 
@@ -61,7 +61,7 @@ export default function FilterMenu() {
               <label className="text-sm font-semibold text-slate-800">
                 Hora
               </label>
-              <select className="mt-2 w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600 outline-none focus:border-[#f59e0b] focus:ring-2 focus:ring-[#f59e0b]/20">
+              <select className="mt-2 w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600 outline-none focus:border-[#4a86b8] focus:ring-2 focus:ring-[#4a86b8]/20">
                 <option>Buscar por hora</option>
                 <option>6:55 am</option>
                 <option>7:00 am</option>
@@ -73,7 +73,7 @@ export default function FilterMenu() {
               <label className="text-sm font-semibold text-slate-800">
                 Estatus
               </label>
-              <select className="mt-2 w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600 outline-none focus:border-[#f59e0b] focus:ring-2 focus:ring-[#f59e0b]/20">
+              <select className="mt-2 w-full appearance-none rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-600 outline-none focus:border-[#4a86b8] focus:ring-2 focus:ring-[#4a86b8]/20">
                 
                 <option>Confirmado</option>
                 <option>Pendiente</option>
@@ -83,7 +83,7 @@ export default function FilterMenu() {
 
             <button
               type="button"
-              className="w-full rounded-xl bg-[#f59e0b] py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#f97316]"
+              className="w-full rounded-xl bg-[#4a86b8] py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#3b739f]"
             >
               Ir a la búsqueda
             </button>

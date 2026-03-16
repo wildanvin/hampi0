@@ -52,7 +52,7 @@ export default function TurnosCalendar() {
         height="auto"
         dayMaxEventRows={5}
         eventDisplay="block"
-        eventTextColor="#0b1f38"
+        eventTextColor="#1f3d5a"
         eventBackgroundColor="#baf7d4"
         eventBorderColor="#baf7d4"
         nowIndicator
@@ -67,7 +67,7 @@ export default function TurnosCalendar() {
           const badge = (info.event.extendedProps as { badge?: string }).badge;
           return (
             <div className="relative">
-              <div className="absolute right-2 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-semibold text-[#f97316] shadow-sm">
+              <div className="absolute right-2 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-semibold text-[#3b739f] shadow-sm">
                 {badge}
               </div>
               <div className="whitespace-pre-line text-[11px] font-semibold leading-4">

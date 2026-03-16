@@ -300,7 +300,7 @@ function MedicationCard({
     <div
       className={`rounded-2xl border px-4 py-4 transition ${
         checked
-          ? 'border-[#f59e0b] bg-[#fff7ed] shadow-[0_10px_24px_rgba(245,158,11,0.12)]'
+          ? 'border-[#4a86b8] bg-[#f3f7fb] shadow-[0_10px_24px_rgba(74,134,184,0.14)]'
           : 'border-slate-200 bg-white hover:border-slate-300'
       }`}
     >
@@ -310,7 +310,7 @@ function MedicationCard({
           type='checkbox'
           checked={checked}
           onChange={(event) => onToggle(event.target.checked)}
-          className='h-5 w-5 cursor-pointer rounded border-slate-300 text-[#f59e0b] focus:ring-[#f59e0b]'
+          className='h-5 w-5 cursor-pointer rounded border-slate-300 text-[#4a86b8] focus:ring-[#4a86b8]'
         />
 
         <div className='flex min-w-0 flex-1 items-center gap-3'>
@@ -328,7 +328,7 @@ function MedicationCard({
                 value={dosage}
                 onChange={(event) => onDosageChange(event.target.value)}
                 placeholder='0'
-                className='h-10 w-24 rounded-xl border border-slate-200 px-3 text-sm text-slate-700 outline-none transition focus:border-[#f59e0b] focus:ring-2 focus:ring-[#fde6b3]'
+                className='h-10 w-24 rounded-xl border border-slate-200 px-3 text-sm text-slate-700 outline-none transition focus:border-[#4a86b8] focus:ring-2 focus:ring-[#d9e6f2]'
               />
               <span className='text-sm font-semibold text-slate-500'>ml</span>
             </div>

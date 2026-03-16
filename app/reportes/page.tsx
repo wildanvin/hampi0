@@ -60,23 +60,23 @@ const dayPickerClassNames = {
   week: '',
   day: 'p-0',
   day_button:
-    'flex h-12 w-12 items-center justify-center rounded-xl text-base text-slate-700 transition hover:bg-[#fff7ed] hover:text-[#f59e0b]',
+    'flex h-12 w-12 items-center justify-center rounded-xl text-base text-slate-700 transition hover:bg-[#f3f7fb] hover:text-[#4a86b8]',
   selected:
-    'bg-[#f59e0b] text-white hover:bg-[#f59e0b] hover:text-white',
-  today: 'border border-[#fcd9a6] bg-[#fff7ed] text-[#f59e0b]',
+    'bg-[#4a86b8] text-white hover:bg-[#4a86b8] hover:text-white',
+  today: 'border border-[#c7d8e7] bg-[#f3f7fb] text-[#4a86b8]',
   outside: 'text-slate-300',
 }
 
 const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
   Todos: {
     resumen: [
-      { title: 'Citas Agendadas', value: '10375', color: 'bg-[#c47a2a]' },
+      { title: 'Citas Agendadas', value: '10375', color: 'bg-[#4a86b8]' },
       {
         title: 'Atenciones Completadas',
         value: '7760',
-        color: 'bg-[#6b7f2e]',
+        color: 'bg-[#748da3]',
       },
-      { title: 'No Asistieron', value: '2148', color: 'bg-[#e25555]' },
+      { title: 'No Asistieron', value: '2148', color: 'bg-[#c78894]' },
       {
         title: 'Asistieron / No atendidos',
         value: '448',
@@ -86,8 +86,8 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
     caninosTotal: '4598',
     felinosTotal: '3162',
     caninos: [
-      { label: 'Machos', value: '1351', color: 'bg-[#1f8ab9]' },
-      { label: 'Hembras', value: '3247', color: 'bg-[#6a7f2f]' },
+      { label: 'Machos', value: '1351', color: 'bg-[#5a88ae]' },
+      { label: 'Hembras', value: '3247', color: 'bg-[#8e7faf]' },
       { label: 'Gestantes', value: '78', color: 'bg-[#b7b7b7]' },
       { label: 'No Nacidos', value: '497', color: 'bg-[#b7b7b7]' },
       { label: 'Piometras', value: '19', color: 'bg-[#b7b7b7]' },
@@ -96,8 +96,8 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
       { label: 'Vacunados', value: '1551', color: 'bg-[#b7b7b7]' },
     ],
     felinos: [
-      { label: 'Machos', value: '1196', color: 'bg-[#1f8ab9]' },
-      { label: 'Hembras', value: '1966', color: 'bg-[#6a7f2f]' },
+      { label: 'Machos', value: '1196', color: 'bg-[#5a88ae]' },
+      { label: 'Hembras', value: '1966', color: 'bg-[#8e7faf]' },
       { label: 'Gestantes', value: '117', color: 'bg-[#b7b7b7]' },
       { label: 'No Nacidos', value: '504', color: 'bg-[#b7b7b7]' },
       { label: 'Piometras', value: '8', color: 'bg-[#b7b7b7]' },
@@ -108,13 +108,13 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
   },
   Macho: {
     resumen: [
-      { title: 'Citas Agendadas', value: '4890', color: 'bg-[#c47a2a]' },
+      { title: 'Citas Agendadas', value: '4890', color: 'bg-[#4a86b8]' },
       {
         title: 'Atenciones Completadas',
         value: '3522',
-        color: 'bg-[#6b7f2e]',
+        color: 'bg-[#748da3]',
       },
-      { title: 'No Asistieron', value: '1084', color: 'bg-[#e25555]' },
+      { title: 'No Asistieron', value: '1084', color: 'bg-[#c78894]' },
       {
         title: 'Asistieron / No atendidos',
         value: '156',
@@ -124,7 +124,7 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
     caninosTotal: '1351',
     felinosTotal: '1196',
     caninos: [
-      { label: 'Machos', value: '1351', color: 'bg-[#1f8ab9]' },
+      { label: 'Machos', value: '1351', color: 'bg-[#5a88ae]' },
       { label: 'No Nacidos', value: '0', color: 'bg-[#b7b7b7]' },
       { label: 'Piometras', value: '0', color: 'bg-[#b7b7b7]' },
       { label: 'Tumores', value: '2', color: 'bg-[#b7b7b7]' },
@@ -132,7 +132,7 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
       { label: 'Vacunados', value: '710', color: 'bg-[#b7b7b7]' },
     ],
     felinos: [
-      { label: 'Machos', value: '1196', color: 'bg-[#1f8ab9]' },
+      { label: 'Machos', value: '1196', color: 'bg-[#5a88ae]' },
       { label: 'No Nacidos', value: '0', color: 'bg-[#b7b7b7]' },
       { label: 'Piometras', value: '0', color: 'bg-[#b7b7b7]' },
       { label: 'Tumores', value: '0', color: 'bg-[#b7b7b7]' },
@@ -142,13 +142,13 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
   },
   Hembra: {
     resumen: [
-      { title: 'Citas Agendadas', value: '5485', color: 'bg-[#c47a2a]' },
+      { title: 'Citas Agendadas', value: '5485', color: 'bg-[#4a86b8]' },
       {
         title: 'Atenciones Completadas',
         value: '4238',
-        color: 'bg-[#6b7f2e]',
+        color: 'bg-[#748da3]',
       },
-      { title: 'No Asistieron', value: '1064', color: 'bg-[#e25555]' },
+      { title: 'No Asistieron', value: '1064', color: 'bg-[#c78894]' },
       {
         title: 'Asistieron / No atendidos',
         value: '292',
@@ -158,7 +158,7 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
     caninosTotal: '3247',
     felinosTotal: '1966',
     caninos: [
-      { label: 'Hembras', value: '3247', color: 'bg-[#6a7f2f]' },
+      { label: 'Hembras', value: '3247', color: 'bg-[#8e7faf]' },
       { label: 'Gestantes', value: '78', color: 'bg-[#b7b7b7]' },
       { label: 'En celo', value: '143', color: 'bg-[#b7b7b7]' },
       { label: 'No Nacidos', value: '497', color: 'bg-[#b7b7b7]' },
@@ -168,7 +168,7 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
       { label: 'Vacunados', value: '841', color: 'bg-[#b7b7b7]' },
     ],
     felinos: [
-      { label: 'Hembras', value: '1966', color: 'bg-[#6a7f2f]' },
+      { label: 'Hembras', value: '1966', color: 'bg-[#8e7faf]' },
       { label: 'Gestantes', value: '117', color: 'bg-[#b7b7b7]' },
       { label: 'En celo', value: '98', color: 'bg-[#b7b7b7]' },
       { label: 'No Nacidos', value: '504', color: 'bg-[#b7b7b7]' },
@@ -203,7 +203,7 @@ export default function ReportesPage() {
   }
 
   return (
-    <div className='min-h-screen bg-[#f8f4ef]'>
+    <div className='min-h-screen bg-[#e7edf4]'>
       <div className='min-h-screen px-6 py-10'>
         <div className='mx-auto flex w-full max-w-6xl flex-col gap-9'>
           <BackToTurnosButton />
@@ -211,12 +211,12 @@ export default function ReportesPage() {
           <div className='flex flex-col gap-6'>
             <div className='flex flex-wrap items-start justify-between gap-6'>
               <div className='max-w-lg space-y-5'>
-                <h1 className='text-3xl font-semibold text-[#f39a1d]'>
+                <h1 className='text-3xl font-semibold text-[#3b739f]'>
                   REPORTE DE ATENCIÓN
                 </h1>
 
                 <div>
-                  <p className='text-sm font-semibold text-[#7a5b2f]'>
+                  <p className='text-sm font-semibold text-[#3b5d78]'>
                     Seleccione la parroquia:
                   </p>
                   <select
@@ -224,7 +224,7 @@ export default function ReportesPage() {
                     onChange={(event) =>
                       setSelectedParroquia(event.target.value)
                     }
-                    className='mt-2 w-72 rounded-xl border border-[#e3d5c2] bg-white px-4 py-2 text-sm text-[#c47a2a] shadow-sm outline-none transition focus:border-[#f39a1d]'
+                    className='mt-2 w-72 rounded-xl border border-[#bccede] bg-white px-4 py-2 text-sm text-[#4a86b8] shadow-sm outline-none transition focus:border-[#3b739f]'
                   >
                     <option value='All'>All</option>
                     {parroquias.map((parroquia) => (
@@ -236,7 +236,7 @@ export default function ReportesPage() {
                 </div>
 
                 <div>
-                  <p className='text-sm font-semibold text-[#5a8fab]'>
+                  <p className='text-sm font-semibold text-[#3f6b8f]'>
                     Seleccione la fecha:
                   </p>
                   <div className='mt-3 grid gap-4 md:grid-cols-2'>
@@ -248,10 +248,10 @@ export default function ReportesPage() {
                             current === 'from' ? null : 'from',
                           )
                         }
-                        className='flex w-full items-center justify-between rounded-2xl border border-[#dfe6ec] bg-white px-4 py-3 text-left shadow-sm transition hover:border-[#c9d6e2]'
+                        className='flex w-full items-center justify-between rounded-2xl border border-[#cdd8e3] bg-white px-4 py-3 text-left shadow-sm transition hover:border-[#b6c7d8]'
                       >
                         <div className='flex flex-col gap-1'>
-                          <span className='rounded-full bg-[#d9ecf7] px-3 py-1 text-xs font-semibold text-[#3c7aa1] w-fit'>
+                          <span className='rounded-full bg-[#d8e6f2] px-3 py-1 text-xs font-semibold text-[#3f6b8f] w-fit'>
                             Desde
                           </span>
                           <span className='text-sm font-semibold text-slate-600'>
@@ -262,7 +262,7 @@ export default function ReportesPage() {
                       </button>
 
                       {openPicker === 'from' && (
-                        <div className='absolute left-0 top-[calc(100%+10px)] z-20 rounded-3xl border border-[#dfe6ec] bg-white p-5 shadow-xl'>
+                        <div className='absolute left-0 top-[calc(100%+10px)] z-20 rounded-3xl border border-[#cdd8e3] bg-white p-5 shadow-xl'>
                           <DayPicker
                             mode='single'
                             selected={fromDate}
@@ -286,10 +286,10 @@ export default function ReportesPage() {
                             current === 'to' ? null : 'to',
                           )
                         }
-                        className='flex w-full items-center justify-between rounded-2xl border border-[#dfe6ec] bg-white px-4 py-3 text-left shadow-sm transition hover:border-[#c9d6e2]'
+                        className='flex w-full items-center justify-between rounded-2xl border border-[#cdd8e3] bg-white px-4 py-3 text-left shadow-sm transition hover:border-[#b6c7d8]'
                       >
                         <div className='flex flex-col gap-1'>
-                          <span className='rounded-full bg-[#d9ecf7] px-3 py-1 text-xs font-semibold text-[#3c7aa1] w-fit'>
+                          <span className='rounded-full bg-[#d8e6f2] px-3 py-1 text-xs font-semibold text-[#3f6b8f] w-fit'>
                             Hasta
                           </span>
                           <span className='text-sm font-semibold text-slate-600'>
@@ -300,7 +300,7 @@ export default function ReportesPage() {
                       </button>
 
                       {openPicker === 'to' && (
-                        <div className='absolute left-0 top-[calc(100%+10px)] z-20 rounded-3xl border border-[#dfe6ec] bg-white p-5 shadow-xl'>
+                        <div className='absolute left-0 top-[calc(100%+10px)] z-20 rounded-3xl border border-[#cdd8e3] bg-white p-5 shadow-xl'>
                           <DayPicker
                             mode='single'
                             selected={toDate}
@@ -319,18 +319,18 @@ export default function ReportesPage() {
 
                   <button
                     type='button'
-                    className='mt-4 rounded-2xl bg-[#f59e0b] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(245,158,11,0.25)] transition hover:bg-[#e68a00] hover:shadow-[0_14px_28px_rgba(245,158,11,0.32)]'
+                    className='mt-4 rounded-2xl bg-[#4a86b8] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(74,134,184,0.25)] transition hover:bg-[#3b739f] hover:shadow-[0_14px_28px_rgba(74,134,184,0.32)]'
                   >
                     Consultar
                   </button>
                 </div>
 
                 <div>
-                  <p className='text-sm font-semibold text-[#5a8fab]'>
+                  <p className='text-sm font-semibold text-[#3f6b8f]'>
                     Filtros:
                   </p>
                   <div className='mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-500'>
-                    <span className='rounded-full bg-[#d9ecf7] px-3 py-1 text-xs font-semibold text-[#3c7aa1]'>
+                    <span className='rounded-full bg-[#d8e6f2] px-3 py-1 text-xs font-semibold text-[#3f6b8f]'>
                       Sexo
                     </span>
                     <select
@@ -340,7 +340,7 @@ export default function ReportesPage() {
                           event.target.value as (typeof sexOptions)[number],
                         )
                       }
-                      className='min-w-40 rounded-xl border border-[#dfe6ec] bg-white px-4 py-2 text-sm text-slate-600 outline-none transition focus:border-[#3c7aa1]'
+                      className='min-w-40 rounded-xl border border-[#cdd8e3] bg-white px-4 py-2 text-sm text-slate-600 outline-none transition focus:border-[#3f6b8f]'
                     >
                       {sexOptions.map((option) => (
                         <option key={option} value={option}>
@@ -376,14 +376,14 @@ export default function ReportesPage() {
           <div className='grid gap-6 lg:grid-cols-2'>
             <div className='rounded-3xl bg-white/80 p-6 shadow-sm'>
               <div className='flex items-center gap-4'>
-                <div className='flex h-20 w-20 items-center justify-center rounded-full bg-[#c47a2a]/15 text-lg font-semibold text-[#c47a2a]'>
+                <div className='flex h-20 w-20 items-center justify-center rounded-full bg-[#4a86b8]/15 text-lg font-semibold text-[#4a86b8]'>
                   CAN
                 </div>
                 <div>
-                  <p className='text-sm font-semibold text-[#c47a2a]'>
+                  <p className='text-sm font-semibold text-[#4a86b8]'>
                     Total Caninos
                   </p>
-                  <p className='text-3xl font-semibold text-[#c47a2a]'>
+                  <p className='text-3xl font-semibold text-[#4a86b8]'>
                     {snapshot.caninosTotal}
                   </p>
                 </div>
@@ -403,14 +403,14 @@ export default function ReportesPage() {
 
             <div className='rounded-3xl bg-white/80 p-6 shadow-sm'>
               <div className='flex items-center gap-4'>
-                <div className='flex h-20 w-20 items-center justify-center rounded-full bg-[#6a7f2f]/15 text-lg font-semibold text-[#6a7f2f]'>
+                <div className='flex h-20 w-20 items-center justify-center rounded-full bg-[#8e7faf]/15 text-lg font-semibold text-[#8e7faf]'>
                   FEL
                 </div>
                 <div>
-                  <p className='text-sm font-semibold text-[#6a7f2f]'>
+                  <p className='text-sm font-semibold text-[#8e7faf]'>
                     Total Felinos
                   </p>
-                  <p className='text-3xl font-semibold text-[#6a7f2f]'>
+                  <p className='text-3xl font-semibold text-[#8e7faf]'>
                     {snapshot.felinosTotal}
                   </p>
                 </div>

@@ -46,7 +46,7 @@ export default function ConsultaTabs({
             onClick={() => setActive(tab)}
             className={`rounded-xl px-4 py-2 transition ${
               active === tab
-                ? 'bg-[#f59e0b] text-white shadow-sm'
+                ? 'bg-[#4a86b8] text-white shadow-sm'
                 : 'text-slate-400 hover:text-slate-600'
             }`}
           >
@@ -196,7 +196,7 @@ export default function ConsultaTabs({
             <div className='font-semibold text-slate-800'>
               Insumos Aplicados
             </div>
-            <button className='rounded-xl border border-[#f59e0b] px-4 py-2 text-xs font-semibold text-[#f59e0b]'>
+            <button className='rounded-xl border border-[#4a86b8] px-4 py-2 text-xs font-semibold text-[#4a86b8]'>
               Agregar insumo
             </button>
           </div>
