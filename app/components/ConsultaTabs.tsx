@@ -15,6 +15,8 @@ type TabKey = (typeof tabs)[number]
 
 type ConsultaTabsProps = {
   sexo: string
+  especie: string
+  peso: string | number
 }
 
 const anamnesisQuestions = [
@@ -26,7 +28,11 @@ const anamnesisQuestions = [
   { key: 'inapetencia-decaimiento', label: 'Inapetencia y decaimiento?' },
 ] as const
 
-export default function ConsultaTabs({ sexo }: ConsultaTabsProps) {
+export default function ConsultaTabs({
+  sexo,
+  especie,
+  peso,
+}: ConsultaTabsProps) {
   const [active, setActive] = useState<TabKey>('Evaluación clínica')
   const isFemale = sexo.trim().toLowerCase() === 'hembra'
 
@@ -108,7 +114,7 @@ export default function ConsultaTabs({ sexo }: ConsultaTabsProps) {
       )}
 
       {active === 'Fármacos' && (
-        <PharmacologySection />
+        <PharmacologySection especie={especie} sexo={sexo} peso={peso} />
       )}
 
       {active === 'Operatorio' && (

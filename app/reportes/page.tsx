@@ -160,6 +160,7 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
     caninos: [
       { label: 'Hembras', value: '3247', color: 'bg-[#6a7f2f]' },
       { label: 'Gestantes', value: '78', color: 'bg-[#b7b7b7]' },
+      { label: 'En celo', value: '143', color: 'bg-[#b7b7b7]' },
       { label: 'No Nacidos', value: '497', color: 'bg-[#b7b7b7]' },
       { label: 'Piometras', value: '19', color: 'bg-[#b7b7b7]' },
       { label: 'Tumores', value: '7', color: 'bg-[#b7b7b7]' },
@@ -169,6 +170,7 @@ const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
     felinos: [
       { label: 'Hembras', value: '1966', color: 'bg-[#6a7f2f]' },
       { label: 'Gestantes', value: '117', color: 'bg-[#b7b7b7]' },
+      { label: 'En celo', value: '98', color: 'bg-[#b7b7b7]' },
       { label: 'No Nacidos', value: '504', color: 'bg-[#b7b7b7]' },
       { label: 'Piometras', value: '8', color: 'bg-[#b7b7b7]' },
       { label: 'Tumores', value: '0', color: 'bg-[#b7b7b7]' },

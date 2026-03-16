@@ -200,7 +200,11 @@ export default async function DetalleConsultaPage({
               </div>
             </div>
 
-            <ConsultaTabs sexo={cita.sexo} />
+            <ConsultaTabs
+              sexo={cita.sexo}
+              especie={cita.especie}
+              peso={cita.peso}
+            />
           </div>
         </main>
       </div>
