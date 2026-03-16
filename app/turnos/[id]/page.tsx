@@ -10,7 +10,7 @@ export default async function CitaDetallePage({
   const resolvedParams = await params
   const cita = getCitaById(resolvedParams.id) ?? getCitaById('cita-13')!
   return (
-    <div className='min-h-screen bg-[#e7edf4]'>
+    <div className='min-h-screen bg-[#f3fbff]'>
       <div className='flex min-h-screen'>
         <main className='flex-1'>
           <UserMenu />
@@ -100,7 +100,7 @@ export default async function CitaDetallePage({
             <div className='mt-6 flex justify-end'>
               <a
                 href={`/turnos/${resolvedParams.id}/detalle`}
-                className='rounded-xl bg-[#4a86b8] px-6 py-3 text-sm font-semibold text-white shadow-sm'
+                className='rounded-xl bg-[#b38af4] px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#9d74e8]'
               >
                 Ir a detalle de la consulta
               </a>

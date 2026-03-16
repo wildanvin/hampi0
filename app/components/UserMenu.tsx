@@ -42,7 +42,7 @@ export default function UserMenu() {
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
           <circle cx="12" cy="7" r="4" />
         </svg>
-        <span className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full bg-[#4a86b8] text-[10px] font-bold text-white">
+        <span className="absolute -bottom-1 -right-1 grid h-5 w-5 place-items-center rounded-full bg-[#b38af4] text-[10px] font-bold text-white">
           ▾
         </span>
       </button>

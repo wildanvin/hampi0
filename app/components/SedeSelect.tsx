@@ -61,7 +61,7 @@ export default function SedeSelect() {
               }}
               className={`block w-full px-4 py-2 text-left transition ${
                 selected === sede
-                  ? "bg-[#4a86b8] text-white"
+                  ? "bg-[#b38af4] text-white"
                   : "hover:bg-slate-50"
               }`}
             >

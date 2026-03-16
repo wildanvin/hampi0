@@ -60,122 +60,122 @@ const dayPickerClassNames = {
   week: '',
   day: 'p-0',
   day_button:
-    'flex h-12 w-12 items-center justify-center rounded-xl text-base text-slate-700 transition hover:bg-[#f3f7fb] hover:text-[#4a86b8]',
+    'flex h-12 w-12 items-center justify-center rounded-xl text-base text-slate-700 transition hover:bg-[#f8fbff] hover:text-[#b38af4]',
   selected:
-    'bg-[#4a86b8] text-white hover:bg-[#4a86b8] hover:text-white',
-  today: 'border border-[#c7d8e7] bg-[#f3f7fb] text-[#4a86b8]',
+    'bg-[#b38af4] text-white hover:bg-[#b38af4] hover:text-white',
+  today: 'border border-[#def3ff] bg-[#f8fbff] text-[#b38af4]',
   outside: 'text-slate-300',
 }
 
 const reportData: Record<(typeof sexOptions)[number], ReportSnapshot> = {
   Todos: {
     resumen: [
-      { title: 'Citas Agendadas', value: '10375', color: 'bg-[#4a86b8]' },
+      { title: 'Citas Agendadas', value: '10375', color: 'bg-[#59c7f3]' },
       {
         title: 'Atenciones Completadas',
         value: '7760',
-        color: 'bg-[#748da3]',
+        color: 'bg-[#a5c9df]',
       },
-      { title: 'No Asistieron', value: '2148', color: 'bg-[#c78894]' },
+      { title: 'No Asistieron', value: '2148', color: 'bg-[#f2c2e8]' },
       {
         title: 'Asistieron / No atendidos',
         value: '448',
-        color: 'bg-[#1f2937]',
+        color: 'bg-[#8f7ccc]',
       },
     ],
     caninosTotal: '4598',
     felinosTotal: '3162',
     caninos: [
-      { label: 'Machos', value: '1351', color: 'bg-[#5a88ae]' },
-      { label: 'Hembras', value: '3247', color: 'bg-[#8e7faf]' },
-      { label: 'Gestantes', value: '78', color: 'bg-[#b7b7b7]' },
-      { label: 'No Nacidos', value: '497', color: 'bg-[#b7b7b7]' },
-      { label: 'Piometras', value: '19', color: 'bg-[#b7b7b7]' },
-      { label: 'Tumores', value: '9', color: 'bg-[#b7b7b7]' },
-      { label: 'Desparasitados', value: '1770', color: 'bg-[#b7b7b7]' },
-      { label: 'Vacunados', value: '1551', color: 'bg-[#b7b7b7]' },
+      { label: 'Machos', value: '1351', color: 'bg-[#7fb3d6]' },
+      { label: 'Hembras', value: '3247', color: 'bg-[#b38af4]' },
+      { label: 'Gestantes', value: '78', color: 'bg-[#bfd3e3]' },
+      { label: 'No Nacidos', value: '497', color: 'bg-[#bfd3e3]' },
+      { label: 'Piometras', value: '19', color: 'bg-[#bfd3e3]' },
+      { label: 'Tumores', value: '9', color: 'bg-[#bfd3e3]' },
+      { label: 'Desparasitados', value: '1770', color: 'bg-[#bfd3e3]' },
+      { label: 'Vacunados', value: '1551', color: 'bg-[#bfd3e3]' },
     ],
     felinos: [
-      { label: 'Machos', value: '1196', color: 'bg-[#5a88ae]' },
-      { label: 'Hembras', value: '1966', color: 'bg-[#8e7faf]' },
-      { label: 'Gestantes', value: '117', color: 'bg-[#b7b7b7]' },
-      { label: 'No Nacidos', value: '504', color: 'bg-[#b7b7b7]' },
-      { label: 'Piometras', value: '8', color: 'bg-[#b7b7b7]' },
-      { label: 'Tumores', value: '0', color: 'bg-[#b7b7b7]' },
-      { label: 'Desparasitados', value: '876', color: 'bg-[#b7b7b7]' },
-      { label: 'Vacunados', value: '611', color: 'bg-[#b7b7b7]' },
+      { label: 'Machos', value: '1196', color: 'bg-[#7fb3d6]' },
+      { label: 'Hembras', value: '1966', color: 'bg-[#b38af4]' },
+      { label: 'Gestantes', value: '117', color: 'bg-[#bfd3e3]' },
+      { label: 'No Nacidos', value: '504', color: 'bg-[#bfd3e3]' },
+      { label: 'Piometras', value: '8', color: 'bg-[#bfd3e3]' },
+      { label: 'Tumores', value: '0', color: 'bg-[#bfd3e3]' },
+      { label: 'Desparasitados', value: '876', color: 'bg-[#bfd3e3]' },
+      { label: 'Vacunados', value: '611', color: 'bg-[#bfd3e3]' },
     ],
   },
   Macho: {
     resumen: [
-      { title: 'Citas Agendadas', value: '4890', color: 'bg-[#4a86b8]' },
+      { title: 'Citas Agendadas', value: '4890', color: 'bg-[#59c7f3]' },
       {
         title: 'Atenciones Completadas',
         value: '3522',
-        color: 'bg-[#748da3]',
+        color: 'bg-[#a5c9df]',
       },
-      { title: 'No Asistieron', value: '1084', color: 'bg-[#c78894]' },
+      { title: 'No Asistieron', value: '1084', color: 'bg-[#f2c2e8]' },
       {
         title: 'Asistieron / No atendidos',
         value: '156',
-        color: 'bg-[#1f2937]',
+        color: 'bg-[#8f7ccc]',
       },
     ],
     caninosTotal: '1351',
     felinosTotal: '1196',
     caninos: [
-      { label: 'Machos', value: '1351', color: 'bg-[#5a88ae]' },
-      { label: 'No Nacidos', value: '0', color: 'bg-[#b7b7b7]' },
-      { label: 'Piometras', value: '0', color: 'bg-[#b7b7b7]' },
-      { label: 'Tumores', value: '2', color: 'bg-[#b7b7b7]' },
-      { label: 'Desparasitados', value: '824', color: 'bg-[#b7b7b7]' },
-      { label: 'Vacunados', value: '710', color: 'bg-[#b7b7b7]' },
+      { label: 'Machos', value: '1351', color: 'bg-[#7fb3d6]' },
+      { label: 'No Nacidos', value: '0', color: 'bg-[#bfd3e3]' },
+      { label: 'Piometras', value: '0', color: 'bg-[#bfd3e3]' },
+      { label: 'Tumores', value: '2', color: 'bg-[#bfd3e3]' },
+      { label: 'Desparasitados', value: '824', color: 'bg-[#bfd3e3]' },
+      { label: 'Vacunados', value: '710', color: 'bg-[#bfd3e3]' },
     ],
     felinos: [
-      { label: 'Machos', value: '1196', color: 'bg-[#5a88ae]' },
-      { label: 'No Nacidos', value: '0', color: 'bg-[#b7b7b7]' },
-      { label: 'Piometras', value: '0', color: 'bg-[#b7b7b7]' },
-      { label: 'Tumores', value: '0', color: 'bg-[#b7b7b7]' },
-      { label: 'Desparasitados', value: '451', color: 'bg-[#b7b7b7]' },
-      { label: 'Vacunados', value: '318', color: 'bg-[#b7b7b7]' },
+      { label: 'Machos', value: '1196', color: 'bg-[#7fb3d6]' },
+      { label: 'No Nacidos', value: '0', color: 'bg-[#bfd3e3]' },
+      { label: 'Piometras', value: '0', color: 'bg-[#bfd3e3]' },
+      { label: 'Tumores', value: '0', color: 'bg-[#bfd3e3]' },
+      { label: 'Desparasitados', value: '451', color: 'bg-[#bfd3e3]' },
+      { label: 'Vacunados', value: '318', color: 'bg-[#bfd3e3]' },
     ],
   },
   Hembra: {
     resumen: [
-      { title: 'Citas Agendadas', value: '5485', color: 'bg-[#4a86b8]' },
+      { title: 'Citas Agendadas', value: '5485', color: 'bg-[#59c7f3]' },
       {
         title: 'Atenciones Completadas',
         value: '4238',
-        color: 'bg-[#748da3]',
+        color: 'bg-[#a5c9df]',
       },
-      { title: 'No Asistieron', value: '1064', color: 'bg-[#c78894]' },
+      { title: 'No Asistieron', value: '1064', color: 'bg-[#f2c2e8]' },
       {
         title: 'Asistieron / No atendidos',
         value: '292',
-        color: 'bg-[#1f2937]',
+        color: 'bg-[#8f7ccc]',
       },
     ],
     caninosTotal: '3247',
     felinosTotal: '1966',
     caninos: [
-      { label: 'Hembras', value: '3247', color: 'bg-[#8e7faf]' },
-      { label: 'Gestantes', value: '78', color: 'bg-[#b7b7b7]' },
-      { label: 'En celo', value: '143', color: 'bg-[#b7b7b7]' },
-      { label: 'No Nacidos', value: '497', color: 'bg-[#b7b7b7]' },
-      { label: 'Piometras', value: '19', color: 'bg-[#b7b7b7]' },
-      { label: 'Tumores', value: '7', color: 'bg-[#b7b7b7]' },
-      { label: 'Desparasitados', value: '946', color: 'bg-[#b7b7b7]' },
-      { label: 'Vacunados', value: '841', color: 'bg-[#b7b7b7]' },
+      { label: 'Hembras', value: '3247', color: 'bg-[#b38af4]' },
+      { label: 'Gestantes', value: '78', color: 'bg-[#bfd3e3]' },
+      { label: 'En celo', value: '143', color: 'bg-[#bfd3e3]' },
+      { label: 'No Nacidos', value: '497', color: 'bg-[#bfd3e3]' },
+      { label: 'Piometras', value: '19', color: 'bg-[#bfd3e3]' },
+      { label: 'Tumores', value: '7', color: 'bg-[#bfd3e3]' },
+      { label: 'Desparasitados', value: '946', color: 'bg-[#bfd3e3]' },
+      { label: 'Vacunados', value: '841', color: 'bg-[#bfd3e3]' },
     ],
     felinos: [
-      { label: 'Hembras', value: '1966', color: 'bg-[#8e7faf]' },
-      { label: 'Gestantes', value: '117', color: 'bg-[#b7b7b7]' },
-      { label: 'En celo', value: '98', color: 'bg-[#b7b7b7]' },
-      { label: 'No Nacidos', value: '504', color: 'bg-[#b7b7b7]' },
-      { label: 'Piometras', value: '8', color: 'bg-[#b7b7b7]' },
-      { label: 'Tumores', value: '0', color: 'bg-[#b7b7b7]' },
-      { label: 'Desparasitados', value: '425', color: 'bg-[#b7b7b7]' },
-      { label: 'Vacunados', value: '293', color: 'bg-[#b7b7b7]' },
+      { label: 'Hembras', value: '1966', color: 'bg-[#b38af4]' },
+      { label: 'Gestantes', value: '117', color: 'bg-[#bfd3e3]' },
+      { label: 'En celo', value: '98', color: 'bg-[#bfd3e3]' },
+      { label: 'No Nacidos', value: '504', color: 'bg-[#bfd3e3]' },
+      { label: 'Piometras', value: '8', color: 'bg-[#bfd3e3]' },
+      { label: 'Tumores', value: '0', color: 'bg-[#bfd3e3]' },
+      { label: 'Desparasitados', value: '425', color: 'bg-[#bfd3e3]' },
+      { label: 'Vacunados', value: '293', color: 'bg-[#bfd3e3]' },
     ],
   },
 }
@@ -203,7 +203,7 @@ export default function ReportesPage() {
   }
 
   return (
-    <div className='min-h-screen bg-[#e7edf4]'>
+    <div className='min-h-screen bg-[#f3fbff]'>
       <div className='min-h-screen px-6 py-10'>
         <div className='mx-auto flex w-full max-w-6xl flex-col gap-9'>
           <BackToTurnosButton />
@@ -211,12 +211,12 @@ export default function ReportesPage() {
           <div className='flex flex-col gap-6'>
             <div className='flex flex-wrap items-start justify-between gap-6'>
               <div className='max-w-lg space-y-5'>
-                <h1 className='text-3xl font-semibold text-[#3b739f]'>
+                <h1 className='text-3xl font-semibold text-[#9d74e8]'>
                   REPORTE DE ATENCIÓN
                 </h1>
 
                 <div>
-                  <p className='text-sm font-semibold text-[#3b5d78]'>
+                  <p className='text-sm font-semibold text-[#4a95be]'>
                     Seleccione la parroquia:
                   </p>
                   <select
@@ -224,7 +224,7 @@ export default function ReportesPage() {
                     onChange={(event) =>
                       setSelectedParroquia(event.target.value)
                     }
-                    className='mt-2 w-72 rounded-xl border border-[#bccede] bg-white px-4 py-2 text-sm text-[#4a86b8] shadow-sm outline-none transition focus:border-[#3b739f]'
+                    className='mt-2 w-72 rounded-xl border border-[#d9ecf8] bg-white px-4 py-2 text-sm text-[#59c7f3] shadow-sm outline-none transition focus:border-[#47b8ea]'
                   >
                     <option value='All'>All</option>
                     {parroquias.map((parroquia) => (
@@ -236,7 +236,7 @@ export default function ReportesPage() {
                 </div>
 
                 <div>
-                  <p className='text-sm font-semibold text-[#3f6b8f]'>
+                  <p className='text-sm font-semibold text-[#58b4dd]'>
                     Seleccione la fecha:
                   </p>
                   <div className='mt-3 grid gap-4 md:grid-cols-2'>
@@ -248,10 +248,10 @@ export default function ReportesPage() {
                             current === 'from' ? null : 'from',
                           )
                         }
-                        className='flex w-full items-center justify-between rounded-2xl border border-[#cdd8e3] bg-white px-4 py-3 text-left shadow-sm transition hover:border-[#b6c7d8]'
+                        className='flex w-full items-center justify-between rounded-2xl border border-[#dff2ff] bg-white px-4 py-3 text-left shadow-sm transition hover:border-[#d3ecfb]'
                       >
                         <div className='flex flex-col gap-1'>
-                          <span className='rounded-full bg-[#d8e6f2] px-3 py-1 text-xs font-semibold text-[#3f6b8f] w-fit'>
+                          <span className='rounded-full bg-[#f4ecff] px-3 py-1 text-xs font-semibold text-[#9d74e8] w-fit'>
                             Desde
                           </span>
                           <span className='text-sm font-semibold text-slate-600'>
@@ -262,7 +262,7 @@ export default function ReportesPage() {
                       </button>
 
                       {openPicker === 'from' && (
-                        <div className='absolute left-0 top-[calc(100%+10px)] z-20 rounded-3xl border border-[#cdd8e3] bg-white p-5 shadow-xl'>
+                        <div className='absolute left-0 top-[calc(100%+10px)] z-20 rounded-3xl border border-[#dff2ff] bg-white p-5 shadow-xl'>
                           <DayPicker
                             mode='single'
                             selected={fromDate}
@@ -286,10 +286,10 @@ export default function ReportesPage() {
                             current === 'to' ? null : 'to',
                           )
                         }
-                        className='flex w-full items-center justify-between rounded-2xl border border-[#cdd8e3] bg-white px-4 py-3 text-left shadow-sm transition hover:border-[#b6c7d8]'
+                        className='flex w-full items-center justify-between rounded-2xl border border-[#dff2ff] bg-white px-4 py-3 text-left shadow-sm transition hover:border-[#d3ecfb]'
                       >
                         <div className='flex flex-col gap-1'>
-                          <span className='rounded-full bg-[#d8e6f2] px-3 py-1 text-xs font-semibold text-[#3f6b8f] w-fit'>
+                          <span className='rounded-full bg-[#f4ecff] px-3 py-1 text-xs font-semibold text-[#9d74e8] w-fit'>
                             Hasta
                           </span>
                           <span className='text-sm font-semibold text-slate-600'>
@@ -300,7 +300,7 @@ export default function ReportesPage() {
                       </button>
 
                       {openPicker === 'to' && (
-                        <div className='absolute left-0 top-[calc(100%+10px)] z-20 rounded-3xl border border-[#cdd8e3] bg-white p-5 shadow-xl'>
+                        <div className='absolute left-0 top-[calc(100%+10px)] z-20 rounded-3xl border border-[#dff2ff] bg-white p-5 shadow-xl'>
                           <DayPicker
                             mode='single'
                             selected={toDate}
@@ -319,18 +319,18 @@ export default function ReportesPage() {
 
                   <button
                     type='button'
-                    className='mt-4 rounded-2xl bg-[#4a86b8] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(74,134,184,0.25)] transition hover:bg-[#3b739f] hover:shadow-[0_14px_28px_rgba(74,134,184,0.32)]'
+                    className='mt-4 rounded-2xl bg-[#59c7f3] px-6 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(89,199,243,0.28)] transition hover:bg-[#b38af4] hover:shadow-[0_14px_28px_rgba(179,138,244,0.32)]'
                   >
                     Consultar
                   </button>
                 </div>
 
                 <div>
-                  <p className='text-sm font-semibold text-[#3f6b8f]'>
+                  <p className='text-sm font-semibold text-[#58b4dd]'>
                     Filtros:
                   </p>
                   <div className='mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-500'>
-                    <span className='rounded-full bg-[#d8e6f2] px-3 py-1 text-xs font-semibold text-[#3f6b8f]'>
+                    <span className='rounded-full bg-[#f4ecff] px-3 py-1 text-xs font-semibold text-[#9d74e8]'>
                       Sexo
                     </span>
                     <select
@@ -340,7 +340,7 @@ export default function ReportesPage() {
                           event.target.value as (typeof sexOptions)[number],
                         )
                       }
-                      className='min-w-40 rounded-xl border border-[#cdd8e3] bg-white px-4 py-2 text-sm text-slate-600 outline-none transition focus:border-[#3f6b8f]'
+                      className='min-w-40 rounded-xl border border-[#dff2ff] bg-white px-4 py-2 text-sm text-slate-600 outline-none transition focus:border-[#58b4dd]'
                     >
                       {sexOptions.map((option) => (
                         <option key={option} value={option}>
@@ -376,14 +376,14 @@ export default function ReportesPage() {
           <div className='grid gap-6 lg:grid-cols-2'>
             <div className='rounded-3xl bg-white/80 p-6 shadow-sm'>
               <div className='flex items-center gap-4'>
-                <div className='flex h-20 w-20 items-center justify-center rounded-full bg-[#4a86b8]/15 text-lg font-semibold text-[#4a86b8]'>
+                <div className='flex h-20 w-20 items-center justify-center rounded-full bg-[#59c7f3]/15 text-lg font-semibold text-[#59c7f3]'>
                   CAN
                 </div>
                 <div>
-                  <p className='text-sm font-semibold text-[#4a86b8]'>
+                  <p className='text-sm font-semibold text-[#59c7f3]'>
                     Total Caninos
                   </p>
-                  <p className='text-3xl font-semibold text-[#4a86b8]'>
+                  <p className='text-3xl font-semibold text-[#59c7f3]'>
                     {snapshot.caninosTotal}
                   </p>
                 </div>
@@ -403,14 +403,14 @@ export default function ReportesPage() {
 
             <div className='rounded-3xl bg-white/80 p-6 shadow-sm'>
               <div className='flex items-center gap-4'>
-                <div className='flex h-20 w-20 items-center justify-center rounded-full bg-[#8e7faf]/15 text-lg font-semibold text-[#8e7faf]'>
+                <div className='flex h-20 w-20 items-center justify-center rounded-full bg-[#b38af4]/15 text-lg font-semibold text-[#b38af4]'>
                   FEL
                 </div>
                 <div>
-                  <p className='text-sm font-semibold text-[#8e7faf]'>
+                  <p className='text-sm font-semibold text-[#b38af4]'>
                     Total Felinos
                   </p>
-                  <p className='text-3xl font-semibold text-[#8e7faf]'>
+                  <p className='text-3xl font-semibold text-[#b38af4]'>
                     {snapshot.felinosTotal}
                   </p>
                 </div>

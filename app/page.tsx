@@ -8,13 +8,13 @@ const PawMark = () => (
     fill='none'
     aria-hidden='true'
   >
-    <circle cx='14' cy='19' r='5' fill='#4A86B8' />
-    <circle cx='24' cy='15' r='5' fill='#3B739F' />
-    <circle cx='34' cy='19' r='5' fill='#4A86B8' />
+    <circle cx='14' cy='19' r='5' fill='#59C7F3' />
+    <circle cx='24' cy='15' r='5' fill='#47B8EA' />
+    <circle cx='34' cy='19' r='5' fill='#59C7F3' />
 
     <path
       d='M24 30c-6 0-11 3.8-11 8.5 0 3.3 3.4 6.5 11 6.5s11-3.2 11-6.5C35 33.8 30 30 24 30Z'
-      fill='#3B739F'
+      fill='#47B8EA'
       transform='translate(0 -6)'
     />
   </svg>
@@ -73,15 +73,15 @@ const InputIconEye = () => (
 
 export default function Home() {
   return (
-    <div className='min-h-screen bg-[#e9eff6]'>
+    <div className='min-h-screen bg-[#f5fbff]'>
       <main className='mx-auto flex min-h-screen w-full max-w-6xl items-center gap-12 px-6 py-12 lg:px-10'>
         <section className='w-full max-w-xl'>
           <div className='mb-10 flex items-center gap-4'>
-            <div className='grid h-16 w-16 place-items-center rounded-2xl bg-[#e8eff6] shadow-sm'>
+            <div className='grid h-16 w-16 place-items-center rounded-2xl bg-[#edf7ff] shadow-sm'>
               <PawMark />
             </div>
             <div>
-              <div className='text-lg font-semibold uppercase tracking-[0.18em] text-[#3b739f]'>
+              <div className='text-lg font-semibold uppercase tracking-[0.18em] text-[#b38af4]'>
                 Hampi
               </div>
               <div className='text-sm text-slate-500'>Plataforma de turnos</div>
@@ -109,7 +109,7 @@ export default function Home() {
                 <input
                   type='email'
                   placeholder='tucorreo@hampi.com'
-                  className='w-full rounded-xl border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm text-slate-700 shadow-sm outline-none transition focus:border-[#4a86b8] focus:ring-2 focus:ring-[#4a86b8]/15'
+                  className='w-full rounded-xl border border-slate-200 bg-white py-3 pl-11 pr-4 text-sm text-slate-700 shadow-sm outline-none transition focus:border-[#59c7f3] focus:ring-2 focus:ring-[#59c7f3]/15'
                 />
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function Home() {
                 <input
                   type='password'
                   placeholder='Contraseña'
-                  className='w-full rounded-xl border border-slate-200 bg-white py-3 pl-11 pr-11 text-sm text-slate-700 shadow-sm outline-none transition focus:border-[#4a86b8] focus:ring-2 focus:ring-[#4a86b8]/15'
+                  className='w-full rounded-xl border border-slate-200 bg-white py-3 pl-11 pr-11 text-sm text-slate-700 shadow-sm outline-none transition focus:border-[#59c7f3] focus:ring-2 focus:ring-[#59c7f3]/15'
                 />
                 <span className='pointer-events-none absolute right-4 top-1/2 -translate-y-1/2'>
                   <InputIconEye />
@@ -137,13 +137,13 @@ export default function Home() {
               <label className='flex items-center gap-2 text-slate-500'>
                 <input
                   type='checkbox'
-                  className='h-4 w-4 rounded border-slate-300 text-[#4a86b8] focus:ring-[#4a86b8]'
+                  className='h-4 w-4 rounded border-slate-300 text-[#59c7f3] focus:ring-[#59c7f3]'
                 />
                 Recordarme
               </label>
               <button
                 type='button'
-                className='font-semibold text-[#3b739f] transition hover:text-[#2f628e]'
+                className='font-semibold text-[#b38af4] transition hover:text-[#9d74e8]'
               >
                 ¿Olvidaste tu contraseña?
               </button>
@@ -165,17 +165,17 @@ export default function Home() {
             
 
             <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200">
-              <div className="flex items-center justify-between bg-[#1f3d5a] px-5 py-4 text-white">
+              <div className="flex items-center justify-between bg-[#2f5673] px-5 py-4 text-white">
                 <div className="text-sm font-display font-bold uppercase tracking-wide">
                   Jornadas de esterilización
                 </div>
-                <div className="rounded-full bg-[#4a86b8] px-3 py-1 text-xs font-bold text-[#1f3d5a]">
+                <div className="rounded-full bg-[#59c7f3] px-3 py-1 text-xs font-bold text-[#2f5673]">
                   ¡Gratuita!
                 </div>
               </div>
               <div className="grid grid-cols-[1.1fr_0.9fr] gap-4 px-5 py-6">
                 <div>
-                  <div className="text-2xl font-display font-bold text-[#3b739f]">
+                  <div className="text-2xl font-display font-bold text-[#47b8ea]">
                     Huellas
                   </div>
                   <div className="text-2xl font-display font-extrabold text-slate-900">
@@ -183,7 +183,7 @@ export default function Home() {
                   </div>
                   <div className="text-lg font-medium text-slate-500">
                     En tu
-                    <span className="ml-2 text-xl font-display font-bold text-[#4a86b8]">
+                    <span className="ml-2 text-xl font-display font-bold text-[#59c7f3]">
                       ENTORNO
                     </span>
                   </div>
@@ -193,13 +193,13 @@ export default function Home() {
             </div>
 
             <div className="relative mt-8 h-52">
-              <div className="absolute right-2 top-2 h-40 w-40 rounded-full bg-gradient-to-br from-[#fde68a] via-[#3b739f] to-[#3b739f]/40 opacity-60 blur-2xl" />
-              <div className="absolute left-6 top-10 h-32 w-32 rounded-full bg-gradient-to-br from-[#93c5fd] via-[#22c55e] to-[#4a86b8] opacity-50 blur-2xl" />
-              <div className="absolute inset-x-8 bottom-0 h-44 rounded-[28px] bg-gradient-to-br from-[#edf2f8] via-[#fde68a] to-[#fed7aa] shadow-lg">
+              <div className="absolute right-2 top-2 h-40 w-40 rounded-full bg-gradient-to-br from-[#fde68a] via-[#47b8ea] to-[#47b8ea]/40 opacity-60 blur-2xl" />
+              <div className="absolute left-6 top-10 h-32 w-32 rounded-full bg-gradient-to-br from-[#93c5fd] via-[#22c55e] to-[#59c7f3] opacity-50 blur-2xl" />
+              <div className="absolute inset-x-8 bottom-0 h-44 rounded-[28px] bg-gradient-to-br from-[#eff8ff] via-[#fde68a] to-[#fed7aa] shadow-lg">
                 <div className="absolute -top-6 right-10 h-24 w-24 rounded-full bg-white/60 blur-xl" />
                 <div className="absolute left-6 top-10 h-20 w-20 rounded-full bg-white/40" />
                 <div className="absolute right-16 top-8 h-28 w-28 rounded-full bg-white/60" />
-                <div className="absolute left-8 bottom-8 text-sm font-semibold text-[#1f3d5a]">
+                <div className="absolute left-8 bottom-8 text-sm font-semibold text-[#2f5673]">
                   
                 </div>
               </div>

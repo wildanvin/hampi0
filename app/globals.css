@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #e9eff6;
+  --background: #f5fbff;
   --foreground: #0f172a;
-  --hampi-navy: #1f3d5a;
-  --hampi-navy-2: #2a4f70;
-  --hampi-amber: #4a86b8;
-  --hampi-orange: #3b739f;
-  --hampi-teal: #4a86b8;
-  --hampi-mint: #87a7bf;
-  --hampi-rose: #c690a4;
+  --hampi-navy: #3f4f86;
+  --hampi-navy-2: #5b6eb0;
+  --hampi-amber: #59c7f3;
+  --hampi-orange: #47b8ea;
+  --hampi-teal: #59c7f3;
+  --hampi-mint: #b8d9ea;
+  --hampi-rose: #b38af4;
 }
 
 @theme inline {
@@ -55,7 +55,7 @@ a:hover,
 .fc .fc-scrollgrid,
 .fc .fc-scrollgrid td,
 .fc .fc-scrollgrid th {
-  border: 1px solid #cbd5e1;
+  border: 1px solid #c7e3f4;
 }
 
 .fc .fc-col-header-cell-cushion {
@@ -68,7 +68,7 @@ a:hover,
 }
 
 .fc .fc-daygrid-day {
-  background: #f4f7fb;
+  background: #f8fbff;
 }
 
 .fc .fc-daygrid-day-top {
@@ -103,9 +103,9 @@ a:hover,
 }
 
 .fc .fc-button {
-  background: #f4f7fb;
-  border: 1px solid #cbd5e1;
-  color: #2a4f70;
+  background: #f8fbff;
+  border: 1px solid #c7e3f4;
+  color: #3f88b2;
   box-shadow: 0 1px 0 rgba(15, 23, 42, 0.05);
   border-radius: 0.75rem;
   padding: 0.3rem 0.6rem;
@@ -113,8 +113,8 @@ a:hover,
 
 .fc .fc-button:hover,
 .fc .fc-button:focus {
-  background: #e9eff6;
-  color: #1f3d5a;
+  background: #f5fbff;
+  color: #2f5673;
 }
 
 .fc .fc-button:disabled {
@@ -152,5 +152,5 @@ a:hover,
 
 .fc .fc-scrollgrid,
 .fc .fc-scrollgrid-section > td {
-  border-color: #cbd5e1;
+  border-color: #c7e3f4;
 }

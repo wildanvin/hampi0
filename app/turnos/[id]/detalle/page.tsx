@@ -12,7 +12,7 @@ export default async function DetalleConsultaPage({
   const cita = getCitaById(resolvedParams.id) ?? getCitaById('cita-13')!
 
   return (
-    <div className='min-h-screen bg-[#e7edf4]'>
+    <div className='min-h-screen bg-[#f3fbff]'>
       <div className='flex min-h-screen'>
         <main className='flex-1'>
           <UserMenu />
