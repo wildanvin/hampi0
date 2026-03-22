@@ -151,29 +151,21 @@ export default function ConsultaTabs({
                 </label>
               </div>
             </div>
-            <div>
-              <div className='font-semibold text-slate-700'>
-                ¿Su mascota ha presentado vómito o diarrea?
-              </div>
-              <div className='mt-2 flex gap-4'>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='vomito2' />
-                  Si
-                </label>
-                <label className='inline-flex items-center gap-2'>
-                  <input type='radio' name='vomito2' defaultChecked />
-                  No
-                </label>
-              </div>
-            </div>
+
             <div>
               <div className='font-semibold text-slate-700'>
                 ¿Presentó tumor?
               </div>
-              <select className='mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm text-slate-500'>
-                <option>No</option>
-                <option>Si</option>
-              </select>
+              <div className='mt-2 flex gap-4'>
+                <label className='inline-flex items-center gap-2'>
+                  <input type='radio' name='tumor' />
+                  Si
+                </label>
+                <label className='inline-flex items-center gap-2'>
+                  <input type='radio' name='tumor' defaultChecked />
+                  No
+                </label>
+              </div>
             </div>
           </div>
 
