@@ -1,5 +1,5 @@
-import UserMenu from '../../components/UserMenu'
-import BackToTurnosButton from '../../components/BackToTurnosButton'
+import BackToTurnosButton from '@/app/components/common/BackToTurnosButton'
+import UserMenu from '@/app/components/common/UserMenu'
 import { getCitaById } from '../../data/citas'
 
 export default async function CitaDetallePage({

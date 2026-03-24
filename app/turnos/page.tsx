@@ -1,7 +1,7 @@
-import TurnosCalendar from "../components/TurnosCalendar";
-import UserMenu from "../components/UserMenu";
-import SedeSelect from "../components/SedeSelect";
-import FilterMenu from "../components/FilterMenu";
+import UserMenu from '@/app/components/common/UserMenu'
+import FilterMenu from '@/app/components/turnos/FilterMenu'
+import SedeSelect from '@/app/components/turnos/SedeSelect'
+import TurnosCalendar from '@/app/components/turnos/TurnosCalendar'
 
 const PawLogo = () => (
   <svg width="40" height="40" viewBox="0 0 48 48" fill="none">

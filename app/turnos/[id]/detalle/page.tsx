@@ -1,7 +1,7 @@
-import UserMenu from '../../../components/UserMenu'
-import BackToTurnosButton from '../../../components/BackToTurnosButton'
+import BackToTurnosButton from '@/app/components/common/BackToTurnosButton'
+import UserMenu from '@/app/components/common/UserMenu'
+import ConsultaTabs from '@/app/components/consulta/ConsultaTabs'
 import { getCitaById } from '../../../data/citas'
-import ConsultaTabs from '../../../components/ConsultaTabs'
 
 export default async function DetalleConsultaPage({
   params,

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
-import BackToTurnosButton from '../components/BackToTurnosButton'
+import BackToTurnosButton from '@/app/components/common/BackToTurnosButton'
 import 'react-day-picker/dist/style.css'
 
 const parroquias = [

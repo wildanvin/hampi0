@@ -6,7 +6,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { citas } from "../data/citas";
+import { citas } from "@/app/data/citas";
 
 const events = citas.map((cita) => ({
   id: cita.id,

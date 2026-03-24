@@ -2,6 +2,9 @@
 
 import { type FormEvent, useEffect, useMemo, useRef, useState } from 'react'
 import { DayPicker } from 'react-day-picker'
+import SearchCustodioTab, {
+  type ExistingSelection,
+} from '@/app/components/turnos/nuevo/SearchCustodioTab'
 import { createClient } from '@/app/utils/supabase/client'
 import 'react-day-picker/dist/style.css'
 
@@ -132,16 +135,21 @@ export default function CrearTurnoPage() {
   const [hour12, setHour12] = useState('06')
   const [minutes, setMinutes] = useState('55')
   const [amPm, setAmPm] = useState<'AM' | 'PM'>('AM')
-  const [searchCustodio, setSearchCustodio] = useState('')
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(
     new Date(2026, 1, 7),
   )
   const [calendarOpen, setCalendarOpen] = useState(false)
   const [timePickerOpen, setTimePickerOpen] = useState(false)
-  const [showSearchResult, setShowSearchResult] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
   const [submitSuccess, setSubmitSuccess] = useState('')
+  const [selectionInfo, setSelectionInfo] = useState('')
+  const [existingCustodioId, setExistingCustodioId] = useState<string | null>(
+    null,
+  )
+  const [existingMascotaId, setExistingMascotaId] = useState<string | null>(
+    null,
+  )
   const datePickerRef = useRef<HTMLDivElement>(null)
   const timePickerRef = useRef<HTMLDivElement>(null)
 
@@ -163,6 +171,7 @@ export default function CrearTurnoPage() {
     event.preventDefault()
     setSubmitError('')
     setSubmitSuccess('')
+    setSelectionInfo('')
     setIsSubmitting(true)
 
     try {
@@ -180,40 +189,51 @@ export default function CrearTurnoPage() {
         throw new Error('Completa los campos obligatorios.')
       }
 
-      let custodioId: string | null = null
+      let custodioId: string | null = existingCustodioId
 
-      if (documentId) {
-        const { data } = await supabase
-          .from('custodios')
-          .select('id')
-          .eq('document_id', documentId)
-          .maybeSingle()
-        custodioId = data?.id ?? null
+      // En "Crear turno", no permitimos reutilizar custodios existentes por
+      // cédula/email. Para eso se debe usar la pestaña "Buscar custodio".
+      if (!custodioId && documentId) {
+        const { data: existingByDocument, error: existingByDocumentError } =
+          await supabase
+            .from('custodios')
+            .select('id')
+            .eq('document_id', documentId)
+            .maybeSingle()
+
+        if (existingByDocumentError) {
+          throw existingByDocumentError
+        }
+
+        if (existingByDocument) {
+          setActiveTab('buscar')
+          throw new Error(
+            'La cédula ya existe. Usa la pestaña "Buscar custodio" para crear el turno.',
+          )
+        }
       }
 
       if (!custodioId && normalizedEmail) {
-        const { data } = await supabase
-          .from('custodios')
-          .select('id')
-          .eq('email', normalizedEmail)
-          .maybeSingle()
-        custodioId = data?.id ?? null
+        const { data: existingByEmail, error: existingByEmailError } =
+          await supabase
+            .from('custodios')
+            .select('id')
+            .ilike('email', normalizedEmail)
+            .maybeSingle()
+
+        if (existingByEmailError) {
+          throw existingByEmailError
+        }
+
+        if (existingByEmail) {
+          setActiveTab('buscar')
+          throw new Error(
+            'El correo ya existe. Usa la pestaña "Buscar custodio" para crear el turno.',
+          )
+        }
       }
 
-      if (custodioId) {
-        const { error: updateCustodioError } = await supabase
-          .from('custodios')
-          .update({
-            full_name: tutorFullName,
-            document_id: documentId,
-            email: normalizedEmail,
-          })
-          .eq('id', custodioId)
-
-        if (updateCustodioError) {
-          throw updateCustodioError
-        }
-      } else {
+      if (!custodioId) {
         const { data: newCustodio, error: insertCustodioError } = await supabase
           .from('custodios')
           .insert({
@@ -238,21 +258,27 @@ export default function CrearTurnoPage() {
         ? 0
         : Math.min(11, Math.max(0, ageMonthsValue))
 
-      const { data: mascotaData, error: mascotaError } = await supabase
-        .from('mascotas')
-        .insert({
-          custodio_id: custodioId,
-          name: mascotaName,
-          species: species.toLowerCase(),
-          sex,
-          age_years: safeAgeYears,
-          age_months: safeAgeMonths,
-        })
-        .select('id')
-        .single()
+      let mascotaId: string | null = existingMascotaId
 
-      if (mascotaError) {
-        throw mascotaError
+      if (!mascotaId) {
+        const { data: mascotaData, error: mascotaError } = await supabase
+          .from('mascotas')
+          .insert({
+            custodio_id: custodioId,
+            name: mascotaName,
+            species: species.toLowerCase(),
+            sex,
+            age_years: safeAgeYears,
+            age_months: safeAgeMonths,
+          })
+          .select('id')
+          .single()
+
+        if (mascotaError) {
+          throw mascotaError
+        }
+
+        mascotaId = mascotaData.id
       }
 
       let sedeId: string | null = null
@@ -285,7 +311,7 @@ export default function CrearTurnoPage() {
       const endsAt = new Date(startDate.getTime() + 30 * 60 * 1000)
 
       const { error: turnoError } = await supabase.from('turnos').insert({
-        mascota_id: mascotaData.id,
+        mascota_id: mascotaId,
         custodio_id: custodioId,
         sede_id: sedeId,
         starts_at: startDate.toISOString(),
@@ -300,6 +326,19 @@ export default function CrearTurnoPage() {
 
       setSubmitSuccess('Turno creado correctamente.')
     } catch (error) {
+      if (
+        typeof error === 'object' &&
+        error !== null &&
+        'code' in error &&
+        (error as { code?: string }).code === '23505'
+      ) {
+        setActiveTab('buscar')
+        setSubmitError(
+          'El custodio ya existe. Usa la pestaña "Buscar custodio" para crear el turno.',
+        )
+        return
+      }
+
       const message =
         error instanceof Error
           ? error.message
@@ -310,9 +349,21 @@ export default function CrearTurnoPage() {
     }
   }
 
-  const handleSearchCustodio = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    setShowSearchResult(true)
+  const handleUseSelection = (selection: ExistingSelection) => {
+    setExistingCustodioId(selection.custodio.id)
+    setExistingMascotaId(selection.mascota.id)
+    setTutorName(selection.custodio.fullName.toUpperCase())
+    setCedula(selection.custodio.documentId)
+    setEmail(selection.custodio.email)
+    setPetName(selection.mascota.name.toUpperCase())
+    setSpecies(selection.mascota.species)
+    setSex(selection.mascota.sex)
+    setAgeYears(String(selection.mascota.ageYears))
+    setAgeMonths(String(selection.mascota.ageMonths))
+    setSubmitError('')
+    setSubmitSuccess('')
+    setSelectionInfo('Datos de custodio y mascota cargados. Completa fecha y hora.')
+    setActiveTab('crear')
   }
 
   useEffect(() => {
@@ -389,6 +440,12 @@ export default function CrearTurnoPage() {
 
           {activeTab === 'crear' ? (
             <form onSubmit={handleCreateTurno} className='mt-6 space-y-5'>
+              {selectionInfo && (
+                <p className='rounded-xl border border-[#c7b8ef] bg-[#f4efff] px-4 py-3 text-sm text-[#5f4aa5]'>
+                  {selectionInfo}
+                </p>
+              )}
+
               <div className='rounded-2xl border border-[#d8ebf8] bg-[#f4faff] p-4'>
                 <h2 className='text-sm font-semibold text-[#6b57b8]'>
                   Datos del custodio
@@ -403,9 +460,12 @@ export default function CrearTurnoPage() {
                       type='text'
                       placeholder='Nombre'
                       value={tutorName}
-                      onChange={(event) =>
+                      onChange={(event) => {
                         setTutorName(event.target.value.toUpperCase())
-                      }
+                        setExistingCustodioId(null)
+                        setExistingMascotaId(null)
+                        setSelectionInfo('')
+                      }}
                       className='mt-2 w-full rounded-xl border border-[#d3ecfb] bg-[#f8fbff] px-4 py-3 text-sm uppercase text-slate-700 outline-none transition focus:border-[#86d4f5] focus:ring-2 focus:ring-[#d4efff]/45'
                       required
                     />
@@ -421,11 +481,14 @@ export default function CrearTurnoPage() {
                       autoComplete='off'
                       placeholder='0000000000'
                       value={cedula}
-                      onChange={(event) =>
+                      onChange={(event) => {
                         setCedula(
                           event.target.value.replace(/\D/g, '').slice(0, 10),
                         )
-                      }
+                        setExistingCustodioId(null)
+                        setExistingMascotaId(null)
+                        setSelectionInfo('')
+                      }}
                       maxLength={10}
                       required
                       className='mt-2 w-full rounded-xl border border-[#d3ecfb] bg-[#f8fbff] px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#86d4f5] focus:ring-2 focus:ring-[#d4efff]/45'
@@ -440,8 +503,12 @@ export default function CrearTurnoPage() {
                       type='email'
                       placeholder='correo@dominio.com'
                       value={email}
-                      onChange={(event) => setEmail(event.target.value)}
-                      pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[A-Za-z]{2,}'
+                      onChange={(event) => {
+                        setEmail(event.target.value)
+                        setExistingCustodioId(null)
+                        setExistingMascotaId(null)
+                        setSelectionInfo('')
+                      }}
                       title='Ingresa un correo electrónico válido, por ejemplo: nombre@dominio.com'
                       className='mt-2 w-full rounded-xl border border-[#d3ecfb] bg-[#f8fbff] px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#86d4f5] focus:ring-2 focus:ring-[#d4efff]/45'
                     />
@@ -463,9 +530,11 @@ export default function CrearTurnoPage() {
                       type='text'
                       placeholder='Nombre'
                       value={petName}
-                      onChange={(event) =>
+                      onChange={(event) => {
                         setPetName(event.target.value.toUpperCase())
-                      }
+                        setExistingMascotaId(null)
+                        setSelectionInfo('')
+                      }}
                       className='mt-2 w-full rounded-xl border border-[#d3ecfb] bg-[#f8fbff] px-4 py-3 text-sm uppercase text-slate-700 outline-none transition focus:border-[#86d4f5] focus:ring-2 focus:ring-[#d4efff]/45'
                       required
                     />
@@ -478,7 +547,11 @@ export default function CrearTurnoPage() {
                     <div className='relative'>
                       <select
                         value={species}
-                        onChange={(event) => setSpecies(event.target.value)}
+                        onChange={(event) => {
+                          setSpecies(event.target.value)
+                          setExistingMascotaId(null)
+                          setSelectionInfo('')
+                        }}
                         className={selectClassName}
                       >
                         <option value='PERRO'>PERRO</option>
@@ -497,9 +570,11 @@ export default function CrearTurnoPage() {
                     <div className='relative'>
                       <select
                         value={sex}
-                        onChange={(event) =>
+                        onChange={(event) => {
                           setSex(event.target.value as 'macho' | 'hembra')
-                        }
+                          setExistingMascotaId(null)
+                          setSelectionInfo('')
+                        }}
                         className={`${selectClassName} uppercase`}
                       >
                         <option value='macho'>MACHO</option>
@@ -520,7 +595,11 @@ export default function CrearTurnoPage() {
                       min={0}
                       step={1}
                       value={ageYears}
-                      onChange={(event) => setAgeYears(event.target.value)}
+                      onChange={(event) => {
+                        setAgeYears(event.target.value)
+                        setExistingMascotaId(null)
+                        setSelectionInfo('')
+                      }}
                       className='mt-2 w-full rounded-xl border border-[#d3ecfb] bg-[#f8fbff] px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#86d4f5] focus:ring-2 focus:ring-[#d4efff]/45'
                     />
                   </div>
@@ -535,7 +614,11 @@ export default function CrearTurnoPage() {
                       step={1}
                       max={11}
                       value={ageMonths}
-                      onChange={(event) => setAgeMonths(event.target.value)}
+                      onChange={(event) => {
+                        setAgeMonths(event.target.value)
+                        setExistingMascotaId(null)
+                        setSelectionInfo('')
+                      }}
                       className='mt-2 w-full rounded-xl border border-[#d3ecfb] bg-[#f8fbff] px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#86d4f5] focus:ring-2 focus:ring-[#d4efff]/45'
                     />
                   </div>
@@ -750,39 +833,7 @@ export default function CrearTurnoPage() {
               )}
             </form>
           ) : (
-            <form onSubmit={handleSearchCustodio} className='mt-6 space-y-5'>
-              <div className='rounded-2xl border border-[#d8ebf8] bg-[#f4faff] p-4'>
-                <h2 className='text-sm font-semibold text-[#6b57b8]'>
-                  Buscar custodio existente
-                </h2>
-                <p className='mt-1 text-xs text-[#6e8295]'>
-                  Esta pestaña se usará para reutilizar custodios ya creados.
-                </p>
-
-                <div className='mt-4 grid gap-4 md:grid-cols-[1fr_auto]'>
-                  <input
-                    type='text'
-                    placeholder='Buscar por cédula o nombre'
-                    value={searchCustodio}
-                    onChange={(event) => setSearchCustodio(event.target.value)}
-                    className='w-full rounded-xl border border-[#d3ecfb] bg-[#f8fbff] px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-[#86d4f5] focus:ring-2 focus:ring-[#d4efff]/45'
-                  />
-                  <button
-                    type='submit'
-                    className='rounded-xl bg-[#7f61d7] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#6f52c6]'
-                  >
-                    Buscar
-                  </button>
-                </div>
-              </div>
-
-              {showSearchResult && (
-                <div className='rounded-2xl border border-dashed border-[#c6def0] bg-[#eff8ff] px-4 py-6 text-sm text-[#57718a]'>
-                  No hay resultados conectados todavía. En el siguiente paso
-                  integramos esta búsqueda con Supabase.
-                </div>
-              )}
-            </form>
+            <SearchCustodioTab onUseSelection={handleUseSelection} />
           )}
         </div>
       </div>
